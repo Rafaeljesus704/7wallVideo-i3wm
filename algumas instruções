@@ -1,0 +1,50 @@
+"""
+Primeiramente se tudo deu certo vamos colocar para ele sempre rodar quando vc iniciar seu pc com o i3wm
+
+seria interessante nao ter que passar os mesmos dados toda vez que iniciamos entao
+iremos criar outro arquivo dê o nome que vc quiser, vamos la:
+
+    No terminal passe o comando:
+        
+        nano 7wallVideo
+
+
+    e depois cole o que esta aqui embaixo no arquivo 7wallVideo:
+
+#!/usr/bin/python3
+import os
+from time import sleep 
+
+#aqui vc ajusta a velocidade que o wallpaper ira mudar
+tempoVideo = 0.01
+
+#onde esta escrito "pasta" coloque o nome da pasta que tem as imagens que vc quer que rode como wallpaper
+enderecoPasta = ("$HOME/Imagens/pasta")
+
+
+
+#Digite o conteudo de info.txt ou a quantidade de imagens que tem na pasta criada, digite na variavel p, substituindo a palavra 'numero' pelo numero de imagens
+p = numero
+
+
+n=1
+try:
+    while n<=p:
+
+        caminho = f"feh --bg-scale {enderecoPasta}/tmp-{n}.jpg"
+
+        os.system(caminho)
+        n +=1
+        sleep(tempoVideo)
+
+        if n == p:
+            n = 1
+
+except KeyboardInterrupt:
+    print("Saindo")
+
+except Exception as e:
+    print(e)
+"""
+
+#Dê permissao para o novo arquivo e set na config do i3wm
