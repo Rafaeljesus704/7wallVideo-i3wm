@@ -1,0 +1,36 @@
+#!/usr/bin/python3
+
+import os
+from time import sleep
+
+#aqui vc ajusta a velocidade que o wallpaper ira mudar
+tempoVideo = 0.05
+
+#onde esta escrito "pasta" coloque o nome da pasta que tem as imagens que vc quer que rode como wallpaper:
+enderecoPasta = ("$HOME/Imagens/pasta")
+
+
+
+#Digite o conteudo de info.txt ou a quantidade de imagens que tem na pasta criada, digite na variavel p, substituindo a palavra "numero" pelo numero de imagens:
+p = numero
+
+
+n=1
+try:
+    while n<=p:
+
+        caminho = f"feh --no-fehbg --bg-scale {enderecoPasta}/tmp-{n}.jpg"
+
+        os.system(caminho)
+        n +=1
+        sleep(tempoVideo)
+
+        if n == p:
+            n = 1
+
+
+except KeyboardInterrupt:
+    pass
+
+except Exception as e:
+    print(e)
